@@ -10,7 +10,7 @@ import loginImg from '../../images/login.png'
 
 const Login = () => {
     const [loginData, setLoginData] = useState({})
-    const { loginUser } = useAuth()
+    const { loginUser, googleSignIn } = useAuth()
     const history = useHistory()
     const location = useLocation()
 
@@ -28,6 +28,11 @@ const Login = () => {
         e.preventDefault();
     }
 
+    const handleGoogleSignIn = () => {
+        googleSignIn(location, history)
+
+    }
+
     return (
         <Container>
             <Grid container spacing={2}>
@@ -41,7 +46,7 @@ const Login = () => {
                             id="standard-basic"
                             label="Email"
                             name='email'
-                            onChange={handleOnChange}
+                            onBlur={handleOnChange}
                             variant="standard" />
                         <TextField
                             sx={{ width: "50%", m: 1 }}
@@ -49,7 +54,7 @@ const Login = () => {
                             type="password"
                             label="Password"
                             name="password"
-                            onChange={handleOnChange}
+                            onBlur={handleOnChange}
                             variant="standard" />
                         <Button
                             style={{ backgroundColor: '#00e5ff' }}
@@ -61,6 +66,7 @@ const Login = () => {
                             <Button sx={{ width: "50%", mt: 3 }} variant="text">New Here? Please Register</Button>
                         </NavLink>
                     </form>
+                    <Button onClick={handleGoogleSignIn} sx={{ width: "50%", mt: 3 }} variant="contained">Google Sign In</Button>
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <img style={{ width: '100%' }} src={loginImg} alt='' />

@@ -33,9 +33,14 @@ const Navbar = () => {
 
                     {
                         user?.email ?
-                            <Link onClick={logOut} style={{ textDecoration: 'none', color: 'white' }} to='/login'>
-                                <Button color="inherit">Logout</Button>
-                            </Link>
+                            <Box>
+                                <Link style={{ textDecoration: 'none', color: 'white' }} to='/dashboard'>
+                                    <Button color="inherit">DashBoard</Button>
+                                </Link>
+                                <Link onClick={logOut} style={{ textDecoration: 'none', color: 'white' }} to='/login'>
+                                    <Button color="inherit">Logout</Button>
+                                </Link>
+                            </Box>
                             : <Link style={{ textDecoration: 'none', color: 'white' }} to='/login'>
                                 <Button color="inherit">Login</Button>
                             </Link>

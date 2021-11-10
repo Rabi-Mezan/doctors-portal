@@ -6,6 +6,7 @@ import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import AuthProvider from './context/AuthProvider/AuthProvider';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
+import DashBoard from './Pages/DashBoard/Dashboard/DashBoard';
 
 
 function App() {
@@ -27,10 +28,12 @@ function App() {
             <Route path='/register'>
               <Register></Register>
             </Route>
+            <Route path='/dashboard'>
+              <DashBoard></DashBoard>
+            </Route>
             <PrivateRoute path='/appointment'>
               <Appointment></Appointment>
             </PrivateRoute>
-
           </Switch>
         </BrowserRouter>
       </AuthProvider>
