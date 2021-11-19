@@ -43,7 +43,7 @@ const BookingModal = (props) => {
             date: date.toLocaleDateString()
 
         }
-        fetch('http://localhost:5000/appointments', {
+        fetch('https://serene-peak-62265.herokuapp.com/appointments', {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(appointment)

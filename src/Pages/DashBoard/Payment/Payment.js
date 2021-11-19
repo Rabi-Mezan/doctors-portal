@@ -13,7 +13,7 @@ const Payment = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/appointments/${id}`)
+        fetch(`https://serene-peak-62265.herokuapp.com/appointments/${id}`)
             .then(res => res.json())
             .then(data => setAppointment(data))
     }, [id])
