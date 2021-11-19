@@ -3,8 +3,13 @@ import Grid from '@mui/material/Grid';
 import chair from '../../../images/chair.png'
 import bg from '../../../images/bg.png'
 
+
 import { Button, Container, Typography } from '@mui/material';
 import { Box } from '@mui/system';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 const bannerBg = {
     background: `url(${bg})`
@@ -35,7 +40,8 @@ const Banner = () => {
                         </Button>
                     </Box>
                 </Grid>
-                <Grid style={verticalAlign} item xs={12} md={7}>
+                <Grid data-aos="fade-left" data-aos-easing="ease-out-cubic"
+                    data-aos-duration="2000" style={verticalAlign} item xs={12} md={7}>
                     <img style={{ width: "400px" }} src={chair} alt="" />
                 </Grid>
 

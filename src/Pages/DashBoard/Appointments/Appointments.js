@@ -8,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
 const Appointments = (props) => {
@@ -19,7 +20,7 @@ const Appointments = (props) => {
         fetch(`http://localhost:5000/appointments?email=${user?.email}&date=${date}`)
             .then(res => res.json())
             .then(data => setAppointments(data))
-    }, [date])
+    }, [date, user.email])
     return (
         <div>
             <Typography variant='h6' sx={{ my: 2 }} >Appointments of Mr. {user.displayName}</Typography>
@@ -28,9 +29,9 @@ const Appointments = (props) => {
                     <TableHead>
                         <TableRow>
                             <TableCell>Name</TableCell>
-                            <TableCell align="right">Schedule</TableCell>
-                            <TableCell align="right">Service</TableCell>
-                            <TableCell align="right">Action</TableCell>
+                            <TableCell align="left">Schedule</TableCell>
+                            <TableCell align="left">Service</TableCell>
+                            <TableCell align="left">Action</TableCell>
 
                         </TableRow>
                     </TableHead>
@@ -43,9 +44,15 @@ const Appointments = (props) => {
                                 <TableCell component="th" scope="row">
                                     {row.patientName}
                                 </TableCell>
-                                <TableCell align="right">{row.time}</TableCell>
-                                <TableCell align="right">{row.serviceName}</TableCell>
-                                <TableCell align="right">{row.fat}</TableCell>
+                                <TableCell align="left">{row.time}</TableCell>
+                                <TableCell align="left">{row.serviceName}</TableCell>
+                                <TableCell align="left">
+                                    {row?.payment ?
+                                        'paid'
+                                        :
+                                        <Link to={`/dashboard/payment/${row._id}`}>
+                                            <button>Pay</button>
+                                        </Link>}</TableCell>
 
                             </TableRow>
                         ))}

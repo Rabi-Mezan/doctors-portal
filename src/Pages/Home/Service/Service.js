@@ -4,12 +4,19 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 const Service = (props) => {
     const { img, name, description } = props.service
+
+
     return (
 
-        <Grid item xs={4} sm={4} md={4} >
+        <Grid data-aos="fade-left" data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000" item xs={4} sm={4} md={4} >
             <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
                 <CardMedia
                     component="img"

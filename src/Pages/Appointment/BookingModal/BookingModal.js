@@ -22,9 +22,9 @@ const style = {
 };
 
 const BookingModal = (props) => {
-    const { handleClose, open, booking, date } = props
+    const { handleClose, open, booking, date, price } = props
     const { user } = useAuth();
-    const initialInfo = { patientName: user.displayName, email: user.email, phone: '' }
+    const initialInfo = { patientName: user.displayName, email: user.email, phone: '', price: booking.price }
     const [bookingInfo, setBookingInfo] = useState(initialInfo);
 
 

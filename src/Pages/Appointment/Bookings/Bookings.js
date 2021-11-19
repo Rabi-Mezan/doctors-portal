@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import BookingModal from '../BookingModal/BookingModal';
 
 const Bookings = ({ booking, date }) => {
-    const { name, time, space } = booking
+    const { name, time, space, price } = booking
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -19,6 +19,9 @@ const Bookings = ({ booking, date }) => {
                     </Typography>
                     <Typography variant="h5" gutterBottom component="div">
                         {time}
+                    </Typography>
+                    <Typography variant="h6" gutterBottom component="div">
+                        Price: ${price}
                     </Typography>
                     <Typography variant="caption" display="block" gutterBottom>
                         {space} SPACES AVAILABLE
